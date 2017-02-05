@@ -1,3 +1,23 @@
 .grid {
   font-size: 14px;
 }
+
+.status {
+  color: #eee;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.status-open {
+  background-color: red;
+}
+
+.status-pending {
+  background-color: #55f;
+}
+
+.status-hold {
+  background-color: #333;
+}
