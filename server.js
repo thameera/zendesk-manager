@@ -12,8 +12,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/tickets', (req, res) => {
-  const data = tickets.load();
-  res.json(data);
+  tickets.load()
+    .then(data => {
+      res.json(data);
+    });
 });
 
 app.listen(app.get('port'), () => {
