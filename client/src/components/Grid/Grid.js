@@ -6,8 +6,8 @@ const columns = [
   { key: 'status', name: 'Status', width: 120 },
   { key: 'subject', name: 'Subject' },
   { key: 'priority', name: 'Priority' },
-  { key: 'tags', name: 'Tags' },
-  { key: 'next', name: 'Next' },
+  { key: 'tags', name: 'Tags', editable: true },
+  { key: 'next', name: 'Next', editable: true },
 ]
 
 class Grid extends Component {
@@ -19,6 +19,7 @@ class Grid extends Component {
           columns={columns}
           rowGetter={this.props.ticketGetter}
           rowsCount={this.props.ticketCount}
+          onRowUpdated={this.props.handleRowUpdate}
         />
       </div>
     );

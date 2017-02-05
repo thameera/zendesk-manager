@@ -8,6 +8,7 @@ class App extends Component {
     super();
 
     this.ticketGetter = this.ticketGetter.bind(this);
+    this.handleRowUpdate = this.handleRowUpdate.bind(this);
 
     this.state = {
       tickets: []
@@ -27,6 +28,14 @@ class App extends Component {
     return this.state.tickets[i];
   }
 
+  handleRowUpdate({ rowIdx, updated }) {
+    const tickets = this.state.tickets.slice();
+    Object.assign(tickets[rowIdx], updated);
+    this.setState({
+      tickets
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,6 +46,7 @@ class App extends Component {
           <Grid
             ticketGetter={this.ticketGetter}
             ticketCount={this.state.tickets.length}
+            handleRowUpdate={this.handleRowUpdate}
           />
         </div>
       </div>
