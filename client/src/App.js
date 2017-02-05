@@ -3,6 +3,9 @@ import Client from './Client';
 import Grid from './components/Grid/Grid';
 import './App.css';
 
+const STATES = ['open', 'pending', 'hold'];
+const PRIORITIES = ['p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'];
+
 class App extends Component {
   constructor() {
     super();
@@ -19,9 +22,29 @@ class App extends Component {
     Client.getTickets(data => {
       console.log(data);
       this.setState({
-        tickets: data.tickets
+        tickets: this.sortTickets(data.tickets)
       })
     });
+  }
+
+  sortTickets(tickets) {
+    tickets.sort((a, b) => {
+      const aStatusLoc = STATES.indexOf(a.status);
+      const bStatusLoc = STATES.indexOf(b.status);
+      if (aStatusLoc < bStatusLoc) {
+        return -1;
+      } else if (bStatusLoc < aStatusLoc) {
+        return 1;
+      }
+      if (a.priority < b.priority) {
+        return -1;
+      } else if (a.priority > b.priority) {
+        return 1;
+      }
+      return a.id < b.id ? -1 : 1;
+    });
+
+    return tickets;
   }
 
   ticketGetter(i) {
