@@ -34,6 +34,7 @@ class App extends Component {
     this.setState({
       tickets
     });
+    Client.saveTickets(tickets);
   }
 
   render() {

@@ -22,5 +22,15 @@ const getTickets = cb => {
     .then(cb);
 }
 
-const Client = { getTickets };
+const saveTickets = (tickets) => {
+  return fetch('tickets', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({tickets: tickets})
+  });
+}
+
+const Client = { getTickets, saveTickets };
 export default Client;
