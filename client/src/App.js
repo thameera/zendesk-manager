@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Client from './Client';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      tickets: []
+    };
+  }
+
+  componentDidMount() {
+    Client.getTickets(data => {
+      console.log(data);
+      this.setState({
+        tickets: data.tickets
+      })
+    });
+  }
+
   render() {
     return (
       <div className="App">
