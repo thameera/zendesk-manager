@@ -4,7 +4,6 @@ import Grid from './components/Grid/Grid';
 import './App.css';
 
 const STATES = ['open', 'pending', 'hold'];
-const PRIORITIES = ['p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'];
 
 class App extends Component {
   constructor() {
