@@ -14,12 +14,21 @@ const parseJSON = response => {
   return response.json();
 }
 
-const getTickets = cb => {
-  return fetch('tickets', {
+const fetchTickets = (reload, cb) => {
+  const query = reload ? '?refresh=1' : '';
+  return fetch(`tickets${query}`, {
     accept: 'application/json'
   }).then(checkStatus)
     .then(parseJSON)
     .then(cb);
+}
+
+const getTickets = cb => {
+  return fetchTickets(false, cb);
+}
+
+const reloadTickets = cb => {
+  return fetchTickets(true, cb);
 }
 
 const saveTickets = (tickets) => {
@@ -32,5 +41,5 @@ const saveTickets = (tickets) => {
   });
 }
 
-const Client = { getTickets, saveTickets };
+const Client = { getTickets, reloadTickets, saveTickets };
 export default Client;

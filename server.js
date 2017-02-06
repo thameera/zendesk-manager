@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/tickets', (req, res) => {
-  tickets.load()
+  const shouldReload = req.query.refresh === '1';
+  tickets.load(shouldReload)
     .then(data => {
       res.json(data);
     });

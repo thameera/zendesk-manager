@@ -9,6 +9,7 @@ class App extends Component {
   constructor() {
     super();
 
+    this.reload = this.reload.bind(this);
     this.ticketGetter = this.ticketGetter.bind(this);
     this.handleRowUpdate = this.handleRowUpdate.bind(this);
 
@@ -23,6 +24,14 @@ class App extends Component {
       this.setState({
         tickets: this.sortTickets(data.tickets)
       })
+    });
+  }
+
+  reload() {
+    Client.reloadTickets(data => {
+      this.setState({
+        tickets: this.sortTickets(data.tickets)
+      });
     });
   }
 
@@ -66,6 +75,7 @@ class App extends Component {
           <h2>Zendesk Ticket Manager</h2>
         </div>
         <div className="App-content">
+          <button onClick={this.reload}>Reload</button>
           <Grid
             ticketGetter={this.ticketGetter}
             ticketCount={this.state.tickets.length}
