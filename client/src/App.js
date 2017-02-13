@@ -14,23 +14,32 @@ class App extends Component {
     this.handleRowUpdate = this.handleRowUpdate.bind(this);
 
     this.state = {
-      tickets: []
+      tickets: [],
+      loading: false
     };
   }
 
   componentDidMount() {
+    this.setState({
+      loading: true
+    });
     Client.getTickets(data => {
       console.log(data);
       this.setState({
-        tickets: this.sortTickets(data.tickets)
+        tickets: this.sortTickets(data.tickets),
+        loading: false
       })
     });
   }
 
   reload() {
+    this.setState({
+      loading: true
+    });
     Client.reloadTickets(data => {
       this.setState({
-        tickets: this.sortTickets(data.tickets)
+        tickets: this.sortTickets(data.tickets),
+        loading: false
       });
     });
   }
@@ -75,7 +84,11 @@ class App extends Component {
           <h2>Zendesk Ticket Manager</h2>
         </div>
         <div className="App-content">
-          <button onClick={this.reload}>Reload</button>
+          {this.state.loading ? (
+            <div>Loading...</div>
+          ) : (
+            <button onClick={this.reload}>Reload</button>
+          )}
           <Grid
             ticketGetter={this.ticketGetter}
             ticketCount={this.state.tickets.length}
