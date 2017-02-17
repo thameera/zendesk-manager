@@ -7,7 +7,7 @@ const tickets = require('./lib/tickets');
 
 const app = express();
 
-app.set('port', (process.env.PORT || 3001));
+app.set('port', (process.env.SERVER_PORT || 3031));
 
 app.use(bodyParser.json());
 
