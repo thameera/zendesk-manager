@@ -84,11 +84,13 @@ class App extends Component {
           <h2>Zendesk Ticket Manager</h2>
         </div>
         <div className="App-content">
-          {this.state.loading ? (
-            <div>Loading...</div>
-          ) : (
-            <button onClick={this.reload}>Reload</button>
-          )}
+          <div id="reload-area">
+            {this.state.loading ? (
+              <div>Loading...</div>
+            ) : (
+              <button onClick={this.reload}>Refresh</button>
+            )}
+          </div>
           <Grid
             ticketGetter={this.ticketGetter}
             ticketCount={this.state.tickets.length}
