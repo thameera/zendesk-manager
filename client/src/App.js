@@ -80,9 +80,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <div className="App-header">
-          <h2>Zendesk Ticket Manager</h2>
+          <span className="header-col">
+            <img src="zendesk_buddha.png" alt="zendesk buddha" width="50" height="50" />
+          </span>
+          <span className="header-col">
+            Zendesk Ticket Manager
+          </span>
         </div>
+
         <div className="App-content">
           <div id="reload-area">
             {this.state.loading ? (

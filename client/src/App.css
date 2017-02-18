@@ -4,9 +4,14 @@
 
 .App-header {
   background-color: #222;
-  height: 70px;
   padding: 20px;
   color: white;
+  font-size: 20px;
+}
+
+.header-col {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .App-content {
