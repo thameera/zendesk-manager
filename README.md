@@ -1,8 +1,20 @@
 # Zendesk Ticket Manager
 
+A tool to get an overview of and manage next actions of Zendesk tickets assigned to you.
+
+## How it works
+
+The server pulls tickets assigned to you by calling the Zendesk API. You can keep notes for each ticket via the UI. These notes are saved locally in a JSON file.
+
 ## Setting up
 
+First create an API token in Zendesk for yourself.
 Copy `.env.example` to `.env` and update necessary configs.
+
+* `DATA_DIR` - directory name for saving data file
+* `ZD_USER_ID` - your Zendesk user ID
+* `ZD_USERNAME` - username for Zendesk API
+* `ZD_PASSWORD` - password for Zendesk API
 
 ## Running locally
 
