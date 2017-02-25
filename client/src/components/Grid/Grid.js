@@ -16,7 +16,7 @@ const columns = [
   { key: 'priority', name: 'Priority', width: 80 },
   { key: 'subject', name: 'Subject', editable: true, width: 250 },
   { key: 'tags', name: 'Tags', editable: true, width: 200 },
-  { key: 'next', name: 'Next', editable: true },
+  { key: 'next', name: 'Next', editable: true, cellClass: 'left' },
 ]
 
 class Grid extends Component {
