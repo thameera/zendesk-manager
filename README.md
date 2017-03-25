@@ -12,6 +12,7 @@ First create an API token in Zendesk for yourself.
 Copy `.env.example` to `.env` and update necessary configs.
 
 * `DATA_DIR` - directory name for saving data file
+* `ZD_TENANT` - your Zendesk tenant name (your ZD URL should be `ZD_TENANT.zendesk.com`)
 * `ZD_USER_ID` - your Zendesk user ID
 * `ZD_USERNAME` - username for Zendesk API
 * `ZD_PASSWORD` - password for Zendesk API
