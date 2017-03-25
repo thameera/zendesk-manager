@@ -3,19 +3,22 @@
 }
 
 .status {
-  color: #eee;
+  color: white;
+  opacity: 0.8;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 4px;
   display: inline-block;
 }
 
 .status-open {
-  background-color: red;
+  background-color: #E82A2A;
 }
 
 .status-pending {
-  background-color: #55f;
+  background-color: #59BBE0;
 }
 
 .status-hold {
