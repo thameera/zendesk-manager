@@ -21,3 +21,11 @@
 #reload-area {
   margin: 7px;
 }
+
+#status-bar {
+  margin-bottom: 10px;
+}
+
+#status-bar TicketCount, #status-bar div {
+  display: inline;
+}

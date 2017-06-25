@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Client from './Client'
 import Grid from './components/Grid/Grid'
+import TicketCount from './components/TicketCount/TicketCount'
 import './App.css'
 
 const STATES = ['open', 'pending', 'hold']
@@ -15,6 +16,7 @@ class App extends Component {
 
     this.state = {
       tickets: [],
+      counts: { all: 0, open: 0 },
       loading: false
     }
   }
@@ -27,6 +29,7 @@ class App extends Component {
       console.log(data)
       this.setState({
         tickets: this.sortTickets(data.tickets),
+        counts: this.getTicketCounts(data.tickets),
         loading: false
       })
     })
@@ -39,6 +42,7 @@ class App extends Component {
     Client.reloadTickets(data => {
       this.setState({
         tickets: this.sortTickets(data.tickets),
+        counts: this.getTicketCounts(data.tickets),
         loading: false
       })
     })
@@ -62,6 +66,13 @@ class App extends Component {
     })
 
     return tickets
+  }
+
+  getTicketCounts(tickets) {
+    return {
+      all: tickets.length,
+      open: tickets.filter(t => t.status === 'open').length
+    }
   }
 
   ticketGetter(i) {
@@ -96,10 +107,13 @@ class App extends Component {
         </div>
 
         <div className="App-content">
-          <div id="reload-area">
-            {this.state.loading
-              ? <div>Loading...</div>
-              : <button onClick={this.reload}>Refresh</button>}
+          <div id="status-bar">
+            <TicketCount counts={this.state.counts} />
+            <div id="reload-area">
+              {this.state.loading
+                ? <div>Loading...</div>
+                : <button onClick={this.reload}>Refresh</button>}
+            </div>
           </div>
           <Grid
             ticketGetter={this.ticketGetter}

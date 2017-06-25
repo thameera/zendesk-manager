@@ -1,0 +1,12 @@
+.ticket-count {
+  font-size: 12px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+.val {
+  margin-right: 10px;
+}
