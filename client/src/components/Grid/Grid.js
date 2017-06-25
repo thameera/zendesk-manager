@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import ReactDataGrid from 'react-data-grid';
-import './Grid.css';
+import React, { Component } from 'react'
+import ReactDataGrid from 'react-data-grid'
+import './Grid.css'
 
-const StatusFormatter = ({value}) => {
+const StatusFormatter = ({ value }) => {
   return (
     <div className={`status status-${value}`}>
       {value}
     </div>
-  );
+  )
 }
 
 const columns = [
@@ -16,7 +16,7 @@ const columns = [
   { key: 'priority', name: 'Priority', width: 80 },
   { key: 'subject', name: 'Subject', editable: true, width: 250 },
   { key: 'tags', name: 'Tags', editable: true, width: 200 },
-  { key: 'next', name: 'Next', editable: true, cellClass: 'left' },
+  { key: 'next', name: 'Next', editable: true, cellClass: 'left' }
 ]
 
 class Grid extends Component {
@@ -32,8 +32,8 @@ class Grid extends Component {
           minHeight={550}
         />
       </div>
-    );
+    )
   }
 }
 
-export default Grid;
+export default Grid
