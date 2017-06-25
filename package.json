@@ -14,10 +14,12 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "babel-node server.js",
-    "client": "babel-node start-client.js"
+    "client": "babel-node start-client.js",
+    "prettify": "prettier --no-semi --single-quote --write '**/*.js'"
   },
   "devDependencies": {
-    "concurrently": "^3.1.0"
+    "concurrently": "^3.1.0",
+    "prettier": "^1.4.4"
   },
   "dependencies": {
     "babel-cli": "^6.22.2",
