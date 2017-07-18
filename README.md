@@ -17,6 +17,10 @@ Copy `.env.example` to `.env` and update necessary configs.
 * `ZD_USERNAME` - username for Zendesk API
 * `ZD_PASSWORD` - password for Zendesk API
 
+Copy `client/src/config.js.example` to `client/src/config.js` and update necessary configs.
+
+* `ZD_TENANT` - your Zendesk tenant name (your ZD URL should be `ZD_TENANT.zendesk.com`)
+
 ## Running locally
 
 ```

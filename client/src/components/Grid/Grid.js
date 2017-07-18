@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 import ReactDataGrid from 'react-data-grid'
 import './Grid.css'
+import { CONFIG } from '../../config'
+
+const IDFormatter = ({ value }) => {
+  return (
+    <a
+      href={`https://${CONFIG.ZD_TENANT}.zendesk.com/agent/tickets/${value}`}
+      target="blank"
+    >
+      {value}
+    </a>
+  )
+}
 
 const StatusFormatter = ({ value }) => {
   return (
@@ -11,7 +23,7 @@ const StatusFormatter = ({ value }) => {
 }
 
 const columns = [
-  { key: 'id', name: 'ID', width: 70, locked: true },
+  { key: 'id', name: 'ID', width: 70, locked: true, formatter: IDFormatter },
   { key: 'status', name: 'Status', width: 100, formatter: StatusFormatter },
   { key: 'priority', name: 'Priority', width: 80 },
   { key: 'subject', name: 'Subject', editable: true, width: 250 },
