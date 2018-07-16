@@ -26,7 +26,7 @@ const columns = [
   { key: 'id', name: 'ID', width: 70, locked: true, formatter: IDFormatter },
   { key: 'status', name: 'Status', width: 100, formatter: StatusFormatter },
   { key: 'priority', name: 'Priority', width: 80 },
-  { key: 'subject', name: 'Subject', editable: true, width: 250 },
+  { key: 'subject', name: 'Subject', width: 250 },
   { key: 'tags', name: 'Tags', editable: true, width: 200 },
   { key: 'next', name: 'Next', editable: true, cellClass: 'left' }
 ]
